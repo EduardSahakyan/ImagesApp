@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ImagesApp</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="age">Age</string>
+
+    <string name="error_empty_email">Email must not be empty</string>
+    <string name="error_invalid_email_format">Email is not valid</string>
+    <string name="error_empty_password">Password must not be empty</string>
+    <string name="error_password_length_invalid">Password must be between 6 and 12 characters long</string>
+    <string name="error_empty_age">Age must not be empty</string>
+    <string name="error_invalid_age_range">Age must be between 18 and 99 years old</string>
+    <string name="create_account">Create account</string>
+
+    <string name="image_description">Image preview</string>
+    <string name="image_size">Size: %.2f MB</string>
+    <string name="image_type">Type: %s</string>
+    <string name="image_tags">Tags: %s</string>
+
+    <string name="uploaded_by">Uploaded by: %s</string>
+    <string name="views_count">Views: %d</string>
+    <string name="favorites_count">Favorites: %d</string>
+    <string name="likes_count">Likes: %d</string>
+    <string name="downloads_count">Downloads: %d</string>
+    <string name="comments_count">Comments: %d</string>
+</resources>

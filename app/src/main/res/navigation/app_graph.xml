@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/app_graph"
+    app:startDestination="@id/auth_flow">
+
+    <action
+        android:id="@+id/action_global_main_flow"
+        app:destination="@id/main_flow"
+        app:popUpTo="@id/app_graph"
+        app:popUpToInclusive="true"
+        app:enterAnim="@anim/slide_to_right"
+        app:exitAnim="@anim/slide_to_left"
+        app:popEnterAnim="@anim/slide_from_left"
+        app:popExitAnim="@anim/slide_from_right"/>
+
+    <navigation
+        android:id="@+id/auth_flow"
+        app:startDestination="@id/signInFragment">
+        <fragment
+            android:id="@+id/signUpFragment"
+            android:name="com.example.imagesapp.presentation.auth.signup.SignUpFragment"
+            android:label="SignUpFragment" />
+        <fragment
+            android:id="@+id/signInFragment"
+            android:name="com.example.imagesapp.presentation.auth.signin.SignInFragment"
+            android:label="SignInFragment">
+            <action
+                android:id="@+id/action_signInFragment_to_signUpFragment"
+                app:destination="@id/signUpFragment"
+                app:enterAnim="@anim/slide_to_right"
+                app:exitAnim="@anim/slide_to_left"
+                app:popEnterAnim="@anim/slide_from_left"
+                app:popExitAnim="@anim/slide_from_right"/>
+        </fragment>
+    </navigation>
+
+    <navigation
+        android:id="@+id/main_flow"
+        app:startDestination="@id/homeFragment">
+
+        <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.example.imagesapp.presentation.main.home.HomeFragment"
+            android:label="HomeFragment" >
+            <action
+                android:id="@+id/action_homeFragment_to_imageDetailsFragment"
+                app:destination="@id/imageDetailsFragment"
+                app:enterAnim="@anim/slide_to_right"
+                app:exitAnim="@anim/slide_to_left"
+                app:popEnterAnim="@anim/slide_from_left"
+                app:popExitAnim="@anim/slide_from_right" />
+        </fragment>
+        <fragment
+            android:id="@+id/imageDetailsFragment"
+            android:name="com.example.imagesapp.presentation.main.imagedetails.ImageDetailsFragment"
+            android:label="ImageDetailsFragment" >
+            <argument
+                android:name="imageId"
+                app:argType="long" />
+        </fragment>
+    </navigation>
+
+</navigation>

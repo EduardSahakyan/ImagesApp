@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.imagesapp.presentation.main.imagedetails.ImageDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:background="?android:attr/windowBackground">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_image_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/size_12"
+                app:cardElevation="@dimen/size_4"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginBottom="@dimen/size_16">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/size_16">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/size_200"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/image_description"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:imageUrl="@{viewModel.uiState.imageUrl}" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_image_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/image_size(viewModel.uiState.imageSize)}'
+                        app:layout_constraintTop_toBottomOf="@id/imageView"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/size_8" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_image_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/image_type(viewModel.uiState.type)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_image_size"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/size_4" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_image_tags"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/image_tags(viewModel.uiState.tags)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_image_type"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/size_4" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_user_details"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/size_12"
+                app:cardElevation="@dimen/size_4"
+                android:layout_marginTop="@dimen/size_16"
+                app:layout_constraintTop_toBottomOf="@id/card_image_details"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/size_16">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_user_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/uploaded_by(viewModel.uiState.owner)}'
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_views"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/views_count(viewModel.uiState.views)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_user_name"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/size_8" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_favorites"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/favorites_count(viewModel.uiState.favorites)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_views"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_marginTop="@dimen/size_8" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/likes_count(viewModel.uiState.likes)}'
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginEnd="@dimen/size_16" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_downloads"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/downloads_count(viewModel.uiState.downloads)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_likes"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:layout_marginEnd="@dimen/size_16" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/text_comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{@string/comments_count(viewModel.uiState.comments)}'
+                        app:layout_constraintTop_toBottomOf="@id/text_downloads"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_marginTop="@dimen/size_8"
+                        android:layout_marginEnd="@dimen/size_16" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
